@@ -12,7 +12,7 @@ GIF animations will be played automatically, but will stop after one turn.
 
 Tested with: png, gif, ico
 
-##Usage:
+## Usage:
 
 ```
 ./show-png.py --file /path/file.png
@@ -33,7 +33,7 @@ Tested with: png, gif, ico
 --demo False           Shows all animations with attached palm.png
 ```
 
-##Installation:
+## Installation:
 * Install pip and git
 ```
 apt-get install python-pip git
