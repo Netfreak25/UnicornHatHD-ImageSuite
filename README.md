@@ -31,7 +31,7 @@ Tested with: png, gif, ico
 --animationsleep 0.1   Set the sleep time between animation frames
 
 --demo False           Shows all animations with attached palm.png
-´´´
+```
 
 ##Installation:
 * Install pip and git
