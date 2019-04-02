@@ -16,7 +16,11 @@ try:
     import unicornhathd
 except ImportError:
     print("no unicorn hat hd detected - using simulator")
-    from unicorn_hat_sim import unicornhathd
+    try:
+        from unicorn_hat_sim import unicornhathd
+    except ImportError:
+        print("no unicorn hat hd simulator found - exiting now")
+        print("You need to install at least a Simulator (unicorn_hat_sim) or the Libraries (unicornhathd)")
 
 
 # default values for animations
@@ -438,8 +442,8 @@ try:
                     showit(new_frame, newr, newg, newb)
                     i += 1
                     last_frame = new_frame
-                    im.seek(im.tell() + 1)
                     time.sleep(animation_sleep)
+                    im.seek(im.tell() + 1)
             except Exception, e3:
                 print e3
                 pass
