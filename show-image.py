@@ -85,13 +85,13 @@ try:
    try:
       argv = sys.argv[1:]
       opts, args = getopt.getopt(argv,"hi:o:",["file=","blink=","spin=","pulse=","zoomin=","fun=","zoomout=","zoom=","demo=","loop=","colorize=","animationsleep=","rotation="])
-   except getopt.GetoptError, e2:
-      print help_text
-      print demo_text
+   except getopt.GetoptError as e2:
+      print(help_text)
+      print(demo_text)
       sys.exit(2)
    for opt, arg in opts:
       if opt == '-h':
-         print help_text
+         print(help_text)
          sys.exit()
       if opt in ("-f", "--file"):
          filechoosen = True
@@ -120,8 +120,8 @@ try:
          rotation = int(arg)
       if opt in ("-d", "--demo"):
          demo = str(arg).lower() in true_array
-except Exception, e:
-    print e
+except Exception as e:
+    print(e)
 
 
 unicornhathd.rotation(rotation)
@@ -140,10 +140,10 @@ if demo == True:
     zoom = True
 
 if not filechoosen:
-    print "Error: You need to select a file via --file"
-    print ""
-    print help_text
-    print demo_text
+    print("Error: You need to select a file via --file")
+    print("")
+    print(help_text)
+    print(demo_text)
     sys.exit(2)
 
 width, height = unicornhathd.get_shape()
@@ -162,8 +162,8 @@ if pwidth > 16:
 # try to convert image 
 try:
     img = img.convert('RGBA')
-except Exception,e:
-    print e
+except Exception as e:
+    print(e)
     pass
 
 
@@ -179,14 +179,14 @@ def showit(theimg = img, newr = 0, newg = 0, newb = 0):
                 try:
                     if int(a) == 0:
                        r,g,b = 0,0,0
-                except Exception, e:
+                except Exception as e:
                     pass
 
                 if (newr != 0) or (newg != 0) or (newb != 0):
                     try:
                         if int(a) != 0:
                            r,g,b = newr,newg,newb
-                    except Exception, e:
+                    except Exception as e:
                         pass
 
 
@@ -194,11 +194,11 @@ def showit(theimg = img, newr = 0, newg = 0, newb = 0):
                     if r or g or b:
                         valid = True
                         unicornhathd.set_pixel(x, y, r, g, b)
-                except Exception, e:
+                except Exception as e:
                     pass
-                print ""
+                print("")
         unicornhathd.show()
-    except Exception,e:
+    except Exception as e:
         pass
 
 
@@ -444,8 +444,8 @@ try:
                     last_frame = new_frame
                     time.sleep(animation_sleep)
                     im.seek(im.tell() + 1)
-            except Exception, e3:
-                print e3
+            except Exception as e3:
+                print(e3)
                 pass
         showit(new_frame, newr, newg, newb)
 
